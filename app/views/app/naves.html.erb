@@ -1,62 +1,65 @@
-<table>
-	<thead>
-		<tr>
-			<th>Nombre</th>
-			<th>Modelo</th>
-			<th>Manufacturador</th>
-			<th>Costo</th>
-			<th>Largo</th>
-			<th>Rapidez</th>
-			<th>Flota</th>
-			<th>Pasajeros</th>
-			<th>Cargo</th>
-			<th>Consumibles</th>
-			<th>Rating</th>
-			<th>Mglt</th>
-			<th>Clase</th>
-			<th>Pilotos</th>
-			<th>Peliculas</th>
-			
-
-			
-
-
-		</tr>
-	</thead>
-
-	<tbody>
-		<% @dato.each do |datas| %>
-		<tr>
-			<td><%= datas["name"] %></td>
-			<td><%= datas["model"] %></td>
-			<td><%= datas["manufacturer"] %></td>
-			<td><%= datas["cost_in_credits"] %></td>
-			<td><%= datas["length"] %></td>
-			<td><%= datas["max_atmosphering_speed"] %></td>
-			<td><%= datas["crew"] %></td>
-			<td><%= datas["passengers"] %></td>
-			<td><%= datas["cargo_capacity"] %></td>
-			<td><%= datas["consumables"] %></td>
-			<td><%= datas["hyperdrive_rating"] %></td>
-			<td><%= datas["MGLT"] %></td>
-			<td><%= datas["starship_class"] %></td>
-			<td><% datas["pilots"].each do |personaje|%>
-				<%= link_to devolver_nombre(personaje), {controller: "app" , action:"personajes",url:personaje} %>
-			<% end %>
-			</td>
-			<td><% datas["films"].each do |pelicula|%>
-				<%= link_to devolver_titulo(pelicula), {controller: "app" , action:"peliculas",url:pelicula} %>
-			<% end %>
-			</td>
-
+<div class="panel panel-default">
+	<div class="panel-heading">Naves</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Modelo</th>
+				<th>Manufacturador</th>
+				<th>Costo</th>
+				<th>Largo</th>
+				<th>Rapidez</th>
+				<th>Flota</th>
+				<th>Pasajeros</th>
+				<th>Cargo</th>
+				<th>Consumibles</th>
+				<th>Rating</th>
+				<th>Mglt</th>
+				<th>Clase</th>
+				<th>Pilotos</th>
+				<th>Peliculas</th>
+				
 
 				
 
 
-			
-			
-		</tr>
-		<% end %>
-	</tbody>
-</table>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @dato.each do |datas| %>
+			<tr>
+				<td><%= datas["name"] %></td>
+				<td><%= datas["model"] %></td>
+				<td><%= datas["manufacturer"] %></td>
+				<td><%= datas["cost_in_credits"] %></td>
+				<td><%= datas["length"] %></td>
+				<td><%= datas["max_atmosphering_speed"] %></td>
+				<td><%= datas["crew"] %></td>
+				<td><%= datas["passengers"] %></td>
+				<td><%= datas["cargo_capacity"] %></td>
+				<td><%= datas["consumables"] %></td>
+				<td><%= datas["hyperdrive_rating"] %></td>
+				<td><%= datas["MGLT"] %></td>
+				<td><%= datas["starship_class"] %></td>
+				<td><% datas["pilots"].each do |personaje|%>
+					<%= link_to devolver_nombre(personaje), {controller: "app" , action:"personajes",url:personaje} %>
+				<% end %>
+				</td>
+				<td><% datas["films"].each do |pelicula|%>
+					<%= link_to devolver_titulo(pelicula), {controller: "app" , action:"peliculas",url:pelicula} %>
+				<% end %>
+				</td>
+
+
+					
+
+
+				
+				
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
 

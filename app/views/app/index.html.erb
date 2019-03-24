@@ -1,25 +1,27 @@
+<div class="panel panel-default">
+	<div class="panel-heading">Peliculas</div>
+	<table class= "table">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Año</th>
+				<th>Director</th>
+				<th>Productor</th>
+				<th>Episodio</th>
+			</tr>
+		</thead>
 
-<table>
-	<thead>
-		<tr>
-			<th>Nombre</th>
-			<th>Año</th>
-			<th>Director</th>
-			<th>Productor</th>
-			<th>Episodio</th>
-		</tr>
-	</thead>
-
-	<tbody>
-		<% @peliculas.each do |pelicula| %>
-		<tr>
-			<td><%= link_to pelicula['title'],{controller: "app" , action:"peliculas", url:pelicula["url"]} %></td>
-			<td><%= pelicula['release_date'] %></td>
-			<td><%= pelicula['director'] %></td>
-			<td><%= pelicula['producer'] %></td>
-			<td><%= pelicula['episode_id'] %></td>
-		</tr>
-		<% end %>
-	</tbody>
-</table>
+		<tbody>
+			<% @peliculas.each do |pelicula| %>
+			<tr>
+				<td><%= link_to pelicula['title'],{controller: "app" , action:"peliculas", url:pelicula["url"]} %></td>
+				<td><%= pelicula['release_date'] %></td>
+				<td><%= pelicula['director'] %></td>
+				<td><%= pelicula['producer'] %></td>
+				<td><%= pelicula['episode_id'] %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
 
