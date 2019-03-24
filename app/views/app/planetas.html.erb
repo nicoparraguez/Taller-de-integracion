@@ -1,0 +1,56 @@
+<table>
+	<thead>
+		<tr>
+			<th>Nombre</th>
+			<th>Rotacion</th>
+			<th>Periodo</th>
+			<th>Diametro</th>
+			<th>Clima</th>
+			<th>Gravedad</th>
+			<th>Terreno</th>
+			<th>Superficie de agua</th>
+			<th>Poblacion</th>
+			<th>Residentes</th>
+			<th>Peliculas</th>
+
+			
+
+			
+
+
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @dato.each do |datas| %>
+		<tr>
+			<td><%= datas["name"] %></td>
+			<td><%= datas["rotation_period"] %></td>
+			<td><%= datas["orbital_period"] %></td>
+			<td><%= datas["diameter"] %></td>
+			<td><%= datas["climate"] %></td>
+			<td><%= datas["gravity"] %></td>
+			<td><%= datas["terrain"] %></td>
+			<td><%= datas["surface_water"] %></td>
+			<td><%= datas["population"] %></td>
+			<td><% datas["residents"].each do |personaje|%>
+				<%= link_to devolver_nombre(personaje), {controller: "app" , action:"personajes",url:personaje} %>
+			<% end %>
+			</td>
+			<td><% datas["films"].each do |pelicula|%>
+				<%= link_to devolver_titulo(pelicula), {controller: "app" , action:"peliculas",url:pelicula} %>
+			<% end %>
+			</td>
+
+
+				
+
+
+			
+			
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
+

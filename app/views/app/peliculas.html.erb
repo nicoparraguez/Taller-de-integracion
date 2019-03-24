@@ -1,0 +1,50 @@
+<table>
+	<thead>
+		<tr>
+			<th>Nombre</th>
+			<th>Episodio</th>
+			<th>Descripcion</th>
+			<th>Director</th>
+			<th>Producer</th>
+			<th>Fecha de publicacion</th>
+			<th>Personajes</th>
+			<th>Planetas</th>
+			<th>Naves</th>
+			
+
+			
+
+
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @dato.each do |datas| %>
+		<tr>
+			<td><%= datas["title"] %></td>
+			<td><%= datas["episode_id"] %></td>
+			<td><%= datas["opening_crawl"] %></td>
+			<td><%= datas["director"] %></td>
+			<td><%= datas["producer"] %></td>
+			<td><%= datas["release_date"] %></td>
+			<td><% datas["characters"].each do |personaje|%>
+				<%= link_to devolver_nombre(personaje), {controller: "app" , action:"personajes",url:personaje} %>
+			<% end %>
+			</td>
+			<td><% datas["planets"].each do |planeta|%>
+				<%= link_to devolver_nombre(planeta), {controller: "app" , action:"planetas",url:planeta} %>
+			<% end %>
+			</td>
+			<td><% datas["starships"].each do |nave|%>
+				<%= link_to devolver_nombre(nave), {controller: "app" , action:"naves",url:nave} %>
+			<% end %>
+			</td>
+				
+
+
+			
+			
+		</tr>
+		<% end %>
+	</tbody>
+</table>

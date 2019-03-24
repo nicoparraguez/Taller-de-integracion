@@ -1,0 +1,53 @@
+<table>
+	<thead>
+		<tr>
+			<th>Nombre</th>
+			<th>Altura</th>
+			<th>Peso</th>
+			<th>Color Cabello</th>
+			<th>Piel</th>
+			<th>Color ojo</th>
+			<th>Nacimiento</th>
+			<th>Genero</th>
+			<th>Peliculas</th>
+			<th>Planeta nacimiento</th>
+
+			<th>Naves</th>
+
+			
+
+			
+
+
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @dato.each do |datas| %>
+		<tr>
+			<td><%= datas["name"] %></td>
+			<td><%= datas["height"] %></td>
+			<td><%= datas["mass"] %></td>
+			<td><%= datas["hair_color"] %></td>
+			<td><%= datas["skin_color"] %></td>
+			<td><%= datas["eye_color"] %></td>
+			<td><%= datas["birth_year"] %></td>
+			<td><%= datas["gender"] %></td>
+			<td><% datas["films"].each do |pelicula|%>
+				<%= link_to devolver_titulo(pelicula), {controller: "app" , action:"peliculas",url:pelicula} %>
+			<% end %>
+			</td>
+			<td><%= link_to devolver_nombre(datas["homeworld"]),{controller: "app" , action:"planetas", url:datas["homeworld"]} %></td>
+			<td><% datas["starships"].each do |nave|%>
+				<%= link_to devolver_nombre(nave), {controller: "app" , action:"naves",url:nave} %>
+			<% end %>
+			</td>
+				
+
+
+			
+			
+		</tr>
+		<% end %>
+	</tbody>
+</table>
